@@ -1,5 +1,5 @@
 {
-  "name": "brickfox/mws",
+  "name": "stephlanj/mws",
   "description": "Amazon Marketplace Web Service libraries",
   "minimum-stability": "dev",
   "license": "Apache-2.0",
@@ -9,6 +9,10 @@
   }, {
     "name": "Nikolas Hermann",
     "email": "nikolas.hermann@brickfox.de"
+  },
+  , {
+    "name": "Steph Lanj",
+    "email": "slanjard@x-tremevideo.com"
   }],
   "include-path": ["src/"],
   "autoload": {
@@ -19,7 +23,8 @@
       "MarketplaceWebService": "src/",
       "MarketplaceWebServiceOrders": "src/",
       "MarketplaceWebServiceProducts": "src/",
-      "MarketplaceWebServiceSellers": "src/"
+      "MarketplaceWebServiceSellers": "src/",
+      "MarketWebServiceFinancesService": "src/"
     }
   }
 }
