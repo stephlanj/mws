@@ -23,7 +23,7 @@
       "MarketplaceWebServiceOrders": "src/",
       "MarketplaceWebServiceProducts": "src/",
       "MarketplaceWebServiceSellers": "src/",
-      "MarketWebServiceFinancesService": "src/"
+      "MWSFinancesService": "src/"
     }
   }
 }
