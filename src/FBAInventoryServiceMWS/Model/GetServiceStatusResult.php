@@ -1,43 +1,50 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2014 Amazon Services. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright 2009-2015 Amazon Services. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
- * You may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License. 
  * You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
- * CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
  * PHP Version 5
  * @category Amazon
  * @package  FBA Inventory Service MWS
  * @version  2010-10-01
- * Library Version: 2014-10-20
- * Generated: Fri Oct 17 17:54:00 GMT 2014
+ * Library Version: 2015-09-29
+ * Generated: Wed Sep 30 14:43:28 PDT 2015
  */
 
 /**
+ *  @see FBAInventoryServiceMWS_Model
+ */
+
+require_once (dirname(__FILE__) . '/../Model.php');
+
+
+/**
  * FBAInventoryServiceMWS_Model_GetServiceStatusResult
- *
+ * 
  * Properties:
  * <ul>
- *
+ * 
  * <li>Status: string</li>
  * <li>Timestamp: string</li>
  *
  * </ul>
  */
-class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventoryServiceMWS_Model
-{
+
+ class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventoryServiceMWS_Model {
 
     public function __construct($data = null)
     {
-        $this->_fields = array(
-            'Status' => array('FieldValue' => null, 'FieldType' => 'string'),
-            'Timestamp' => array('FieldValue' => null, 'FieldType' => 'string'),
-        );
-        parent::__construct($data);
+    $this->_fields = array (
+    'Status' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'Timestamp' => array('FieldValue' => null, 'FieldType' => 'string'),
+    );
+    parent::__construct($data);
     }
 
     /**
@@ -53,8 +60,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventorySe
     /**
      * Set the value of the Status property.
      *
-     * @param string $value status
-     * @return $this This instance
+     * @param string status
+     * @return this instance
      */
     public function setStatus($value)
     {
@@ -69,8 +76,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventorySe
      */
     public function isSetStatus()
     {
-        return !is_null($this->_fields['Status']['FieldValue']);
-    }
+                return !is_null($this->_fields['Status']['FieldValue']);
+            }
 
     /**
      * Set the value of Status, return this.
@@ -78,7 +85,7 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventorySe
      * @param status
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withStatus($value)
     {
@@ -89,7 +96,7 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventorySe
     /**
      * Get the value of the Timestamp property.
      *
-     * @return string Timestamp.
+     * @return XMLGregorianCalendar Timestamp.
      */
     public function getTimestamp()
     {
@@ -99,8 +106,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventorySe
     /**
      * Set the value of the Timestamp property.
      *
-     * @param string $value timestamp
-     * @return $this This instance
+     * @param string timestamp
+     * @return this instance
      */
     public function setTimestamp($value)
     {
@@ -115,8 +122,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventorySe
      */
     public function isSetTimestamp()
     {
-        return !is_null($this->_fields['Timestamp']['FieldValue']);
-    }
+                return !is_null($this->_fields['Timestamp']['FieldValue']);
+            }
 
     /**
      * Set the value of Timestamp, return this.
@@ -124,7 +131,7 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusResult extends FBAInventorySe
      * @param timestamp
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withTimestamp($value)
     {

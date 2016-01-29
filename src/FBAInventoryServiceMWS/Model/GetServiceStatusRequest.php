@@ -1,45 +1,52 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2014 Amazon Services. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright 2009-2015 Amazon Services. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
- * You may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License. 
  * You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
- * CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
  * PHP Version 5
  * @category Amazon
  * @package  FBA Inventory Service MWS
  * @version  2010-10-01
- * Library Version: 2014-10-20
- * Generated: Fri Oct 17 17:54:00 GMT 2014
+ * Library Version: 2015-09-29
+ * Generated: Wed Sep 30 14:43:28 PDT 2015
  */
 
 /**
+ *  @see FBAInventoryServiceMWS_Model
+ */
+
+require_once (dirname(__FILE__) . '/../Model.php');
+
+
+/**
  * FBAInventoryServiceMWS_Model_GetServiceStatusRequest
- *
+ * 
  * Properties:
  * <ul>
- *
+ * 
  * <li>SellerId: string</li>
  * <li>MWSAuthToken: string</li>
  * <li>Marketplace: string</li>
  *
  * </ul>
  */
-class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryServiceMWS_Model
-{
+
+ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryServiceMWS_Model {
 
     public function __construct($data = null)
     {
-        $this->_fields = array(
-            'SellerId' => array('FieldValue' => null, 'FieldType' => 'string'),
-            'MWSAuthToken' => array('FieldValue' => null, 'FieldType' => 'string'),
-            'Marketplace' => array('FieldValue' => null, 'FieldType' => 'string'),
-        );
-        parent::__construct($data);
+    $this->_fields = array (
+    'SellerId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'MWSAuthToken' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'Marketplace' => array('FieldValue' => null, 'FieldType' => 'string'),
+    );
+    parent::__construct($data);
     }
 
     /**
@@ -55,8 +62,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
     /**
      * Set the value of the SellerId property.
      *
-     * @param string $value sellerId
-     * @return $this This instance
+     * @param string sellerId
+     * @return this instance
      */
     public function setSellerId($value)
     {
@@ -71,8 +78,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
      */
     public function isSetSellerId()
     {
-        return !is_null($this->_fields['SellerId']['FieldValue']);
-    }
+                return !is_null($this->_fields['SellerId']['FieldValue']);
+            }
 
     /**
      * Set the value of SellerId, return this.
@@ -80,7 +87,7 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
      * @param sellerId
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withSellerId($value)
     {
@@ -101,8 +108,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
     /**
      * Set the value of the MWSAuthToken property.
      *
-     * @param string $value mwsAuthToken
-     * @return $this This instance
+     * @param string mwsAuthToken
+     * @return this instance
      */
     public function setMWSAuthToken($value)
     {
@@ -117,8 +124,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
      */
     public function isSetMWSAuthToken()
     {
-        return !is_null($this->_fields['MWSAuthToken']['FieldValue']);
-    }
+                return !is_null($this->_fields['MWSAuthToken']['FieldValue']);
+            }
 
     /**
      * Set the value of MWSAuthToken, return this.
@@ -126,7 +133,7 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
      * @param mwsAuthToken
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withMWSAuthToken($value)
     {
@@ -147,8 +154,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
     /**
      * Set the value of the Marketplace property.
      *
-     * @param string $value marketplace
-     * @return $this This instance
+     * @param string marketplace
+     * @return this instance
      */
     public function setMarketplace($value)
     {
@@ -163,8 +170,8 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
      */
     public function isSetMarketplace()
     {
-        return !is_null($this->_fields['Marketplace']['FieldValue']);
-    }
+                return !is_null($this->_fields['Marketplace']['FieldValue']);
+            }
 
     /**
      * Set the value of Marketplace, return this.
@@ -172,7 +179,7 @@ class FBAInventoryServiceMWS_Model_GetServiceStatusRequest extends FBAInventoryS
      * @param marketplace
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withMarketplace($value)
     {

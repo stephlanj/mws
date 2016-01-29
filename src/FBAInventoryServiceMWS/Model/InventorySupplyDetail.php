@@ -1,28 +1,35 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2014 Amazon Services. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright 2009-2015 Amazon Services. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
- * You may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License. 
  * You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
- * CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
  * PHP Version 5
  * @category Amazon
  * @package  FBA Inventory Service MWS
  * @version  2010-10-01
- * Library Version: 2014-10-20
- * Generated: Fri Oct 17 17:54:00 GMT 2014
+ * Library Version: 2015-09-29
+ * Generated: Wed Sep 30 14:43:28 PDT 2015
  */
 
 /**
+ *  @see FBAInventoryServiceMWS_Model
+ */
+
+require_once (dirname(__FILE__) . '/../Model.php');
+
+
+/**
  * FBAInventoryServiceMWS_Model_InventorySupplyDetail
- *
+ * 
  * Properties:
  * <ul>
- *
+ * 
  * <li>Quantity: int</li>
  * <li>SupplyType: string</li>
  * <li>EarliestAvailableToPick: FBAInventoryServiceMWS_Model_Timepoint</li>
@@ -30,24 +37,18 @@
  *
  * </ul>
  */
-class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventoryServiceMWS_Model
-{
+
+ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventoryServiceMWS_Model {
 
     public function __construct($data = null)
     {
-        $this->_fields = array(
-            'Quantity' => array('FieldValue' => null, 'FieldType' => 'int'),
-            'SupplyType' => array('FieldValue' => null, 'FieldType' => 'string'),
-            'EarliestAvailableToPick' => array(
-                'FieldValue' => null,
-                'FieldType' => 'FBAInventoryServiceMWS_Model_Timepoint'
-            ),
-            'LatestAvailableToPick' => array(
-                'FieldValue' => null,
-                'FieldType' => 'FBAInventoryServiceMWS_Model_Timepoint'
-            ),
-        );
-        parent::__construct($data);
+    $this->_fields = array (
+    'Quantity' => array('FieldValue' => null, 'FieldType' => 'int'),
+    'SupplyType' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'EarliestAvailableToPick' => array('FieldValue' => null, 'FieldType' => 'FBAInventoryServiceMWS_Model_Timepoint'),
+    'LatestAvailableToPick' => array('FieldValue' => null, 'FieldType' => 'FBAInventoryServiceMWS_Model_Timepoint'),
+    );
+    parent::__construct($data);
     }
 
     /**
@@ -63,8 +64,8 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
     /**
      * Set the value of the Quantity property.
      *
-     * @param int $value quantity
-     * @return $this This instance
+     * @param int quantity
+     * @return this instance
      */
     public function setQuantity($value)
     {
@@ -79,8 +80,8 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
      */
     public function isSetQuantity()
     {
-        return !is_null($this->_fields['Quantity']['FieldValue']);
-    }
+                return !is_null($this->_fields['Quantity']['FieldValue']);
+            }
 
     /**
      * Set the value of Quantity, return this.
@@ -88,7 +89,7 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
      * @param quantity
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withQuantity($value)
     {
@@ -109,8 +110,8 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
     /**
      * Set the value of the SupplyType property.
      *
-     * @param string $value supplyType
-     * @return $this This instance
+     * @param string supplyType
+     * @return this instance
      */
     public function setSupplyType($value)
     {
@@ -125,8 +126,8 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
      */
     public function isSetSupplyType()
     {
-        return !is_null($this->_fields['SupplyType']['FieldValue']);
-    }
+                return !is_null($this->_fields['SupplyType']['FieldValue']);
+            }
 
     /**
      * Set the value of SupplyType, return this.
@@ -134,7 +135,7 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
      * @param supplyType
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withSupplyType($value)
     {
@@ -145,7 +146,7 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
     /**
      * Get the value of the EarliestAvailableToPick property.
      *
-     * @return FBAInventoryServiceMWS_Model_Timepoint EarliestAvailableToPick.
+     * @return Timepoint EarliestAvailableToPick.
      */
     public function getEarliestAvailableToPick()
     {
@@ -155,8 +156,8 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
     /**
      * Set the value of the EarliestAvailableToPick property.
      *
-     * @param FBAInventoryServiceMWS_Model_Timepoint $value earliestAvailableToPick
-     * @return $this This instance
+     * @param FBAInventoryServiceMWS_Model_Timepoint earliestAvailableToPick
+     * @return this instance
      */
     public function setEarliestAvailableToPick($value)
     {
@@ -171,8 +172,8 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
      */
     public function isSetEarliestAvailableToPick()
     {
-        return !is_null($this->_fields['EarliestAvailableToPick']['FieldValue']);
-    }
+                return !is_null($this->_fields['EarliestAvailableToPick']['FieldValue']);
+            }
 
     /**
      * Set the value of EarliestAvailableToPick, return this.
@@ -180,7 +181,7 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
      * @param earliestAvailableToPick
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withEarliestAvailableToPick($value)
     {
@@ -191,7 +192,7 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
     /**
      * Get the value of the LatestAvailableToPick property.
      *
-     * @return FBAInventoryServiceMWS_Model_Timepoint LatestAvailableToPick.
+     * @return Timepoint LatestAvailableToPick.
      */
     public function getLatestAvailableToPick()
     {
@@ -201,8 +202,8 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
     /**
      * Set the value of the LatestAvailableToPick property.
      *
-     * @param FBAInventoryServiceMWS_Model_Timepoint $value latestAvailableToPick
-     * @return $this This instance
+     * @param FBAInventoryServiceMWS_Model_Timepoint latestAvailableToPick
+     * @return this instance
      */
     public function setLatestAvailableToPick($value)
     {
@@ -217,8 +218,8 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
      */
     public function isSetLatestAvailableToPick()
     {
-        return !is_null($this->_fields['LatestAvailableToPick']['FieldValue']);
-    }
+                return !is_null($this->_fields['LatestAvailableToPick']['FieldValue']);
+            }
 
     /**
      * Set the value of LatestAvailableToPick, return this.
@@ -226,7 +227,7 @@ class FBAInventoryServiceMWS_Model_InventorySupplyDetail extends FBAInventorySer
      * @param latestAvailableToPick
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withLatestAvailableToPick($value)
     {

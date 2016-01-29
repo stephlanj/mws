@@ -1,22 +1,27 @@
 <?php
-
 /*******************************************************************************
- * Copyright 2009-2014 Amazon Services. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright 2009-2015 Amazon Services. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
- * You may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License. 
  * You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
- * CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
  * PHP Version 5
  * @category Amazon
  * @package  FBA Inventory Service MWS
  * @version  2010-10-01
- * Library Version: 2014-10-20
- * Generated: Fri Oct 17 17:54:00 GMT 2014
+ * Library Version: 2015-09-29
+ * Generated: Wed Sep 30 14:43:28 PDT 2015
  */
+
+/**
+ *  @see FBAInventoryServiceMWS_Interface
+ */
+require_once (dirname(__FILE__) . '/Interface.php'); 
+
 class FBAInventoryServiceMWS_Mock implements FBAInventoryServiceMWS_Interface
 {
     // Public API ------------------------------------------------------------//
@@ -36,6 +41,7 @@ class FBAInventoryServiceMWS_Mock implements FBAInventoryServiceMWS_Interface
      */
     public function getServiceStatus($request)
     {
+        require_once (dirname(__FILE__) . '/Model/GetServiceStatusResponse.php');
         return FBAInventoryServiceMWS_Model_GetServiceStatusResponse::fromXML($this->_invoke('GetServiceStatus'));
     }
 
@@ -47,28 +53,28 @@ class FBAInventoryServiceMWS_Mock implements FBAInventoryServiceMWS_Interface
      *     this includes all sellable inventory that has been received by Amazon,
      *     that is not reserved for existing orders or for internal FC processes,
      *     and also inventory expected to be received from inbound shipments.
-     *
-     *     This operation provides 2 typical usages by setting different
+     * 
+     *     This operation provides 2 typical usages by setting different 
      *     ListInventorySupplyRequest value:
-     *
-     *     1. Set value to SellerSkus and not set value to QueryStartDateTime,
-     *     this operation will return all sellable inventory that has been received
+     *     
+     *     1. Set value to SellerSkus and not set value to QueryStartDateTime, 
+     *     this operation will return all sellable inventory that has been received 
      *     by Amazon's fulfillment network for these SellerSkus.
-     *
+     * 
      *     2. Not set value to SellerSkus and set value to QueryStartDateTime,
      *     This operation will return information about the supply of all seller-owned
      *     inventory in Amazon's fulfillment network, for inventory items that may have had
-     *     recent changes in inventory levels. It provides the most efficient mechanism
+     *     recent changes in inventory levels. It provides the most efficient mechanism 
      *     for clients to maintain local copies of inventory supply data.
-     *
+     * 
      *     Only 1 of these 2 parameters (SellerSkus and QueryStartDateTime) can be set value for 1 request.
      *     If both with values or neither with values, an exception will be thrown.
-     *
+     * 
      *     This operation is used with ListInventorySupplyByNextToken
      *     to paginate over the resultset. Begin pagination by invoking the
      *     ListInventorySupply operation, and retrieve the first set of
-     *     results. If more results are available,continuing iteratively requesting further
-     *     pages results by invoking the ListInventorySupplyByNextToken operation (each time
+     *     results. If more results are available,continuing iteratively requesting further 
+     *     pages results by invoking the ListInventorySupplyByNextToken operation (each time 
      *     passing in the NextToken value from the previous result), until the returned NextToken
      *     is null, indicating no further results are available.
      *
@@ -80,6 +86,7 @@ class FBAInventoryServiceMWS_Mock implements FBAInventoryServiceMWS_Interface
      */
     public function listInventorySupply($request)
     {
+        require_once (dirname(__FILE__) . '/Model/ListInventorySupplyResponse.php');
         return FBAInventoryServiceMWS_Model_ListInventorySupplyResponse::fromXML($this->_invoke('ListInventorySupply'));
     }
 
@@ -87,7 +94,7 @@ class FBAInventoryServiceMWS_Mock implements FBAInventoryServiceMWS_Interface
      * List Inventory Supply By Next Token
      * Continues pagination over a resultset of inventory data for inventory
      *     items.
-     *
+     *     
      *     This operation is used in conjunction with ListUpdatedInventorySupply.
      *     Please refer to documentation for that operation for further details.
      *
@@ -99,6 +106,7 @@ class FBAInventoryServiceMWS_Mock implements FBAInventoryServiceMWS_Interface
      */
     public function listInventorySupplyByNextToken($request)
     {
+        require_once (dirname(__FILE__) . '/Model/ListInventorySupplyByNextTokenResponse.php');
         return FBAInventoryServiceMWS_Model_ListInventorySupplyByNextTokenResponse::fromXML($this->_invoke('ListInventorySupplyByNextToken'));
     }
 
@@ -106,9 +114,7 @@ class FBAInventoryServiceMWS_Mock implements FBAInventoryServiceMWS_Interface
 
     private function _invoke($actionName)
     {
-        return $xml = file_get_contents(dirname(__FILE__) . '/Mock/' . $actionName . 'Response.xml',
-            /** search include path */
-            true);
+        return $xml = file_get_contents(dirname(__FILE__) . '/Mock/' . $actionName . 'Response.xml', /** search include path */ TRUE);
     }
 
 }

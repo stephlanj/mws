@@ -1,52 +1,56 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2014 Amazon Services. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright 2009-2015 Amazon Services. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
- * You may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License. 
  * You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
- * CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
  * PHP Version 5
  * @category Amazon
  * @package  FBA Inventory Service MWS
  * @version  2010-10-01
- * Library Version: 2014-10-20
- * Generated: Fri Oct 17 17:54:00 GMT 2014
+ * Library Version: 2015-09-29
+ * Generated: Wed Sep 30 14:43:28 PDT 2015
  */
 
 /**
+ *  @see FBAInventoryServiceMWS_Model
+ */
+
+require_once (dirname(__FILE__) . '/../Model.php');
+
+
+/**
  * FBAInventoryServiceMWS_Model_ListInventorySupplyResult
- *
+ * 
  * Properties:
  * <ul>
- *
+ * 
  * <li>InventorySupplyList: FBAInventoryServiceMWS_Model_InventorySupplyList</li>
  * <li>NextToken: string</li>
  *
  * </ul>
  */
-class FBAInventoryServiceMWS_Model_ListInventorySupplyResult extends FBAInventoryServiceMWS_Model
-{
+
+ class FBAInventoryServiceMWS_Model_ListInventorySupplyResult extends FBAInventoryServiceMWS_Model {
 
     public function __construct($data = null)
     {
-        $this->_fields = array(
-            'InventorySupplyList' => array(
-                'FieldValue' => null,
-                'FieldType' => 'FBAInventoryServiceMWS_Model_InventorySupplyList'
-            ),
-            'NextToken' => array('FieldValue' => null, 'FieldType' => 'string'),
-        );
-        parent::__construct($data);
+    $this->_fields = array (
+    'InventorySupplyList' => array('FieldValue' => null, 'FieldType' => 'FBAInventoryServiceMWS_Model_InventorySupplyList'),
+    'NextToken' => array('FieldValue' => null, 'FieldType' => 'string'),
+    );
+    parent::__construct($data);
     }
 
     /**
      * Get the value of the InventorySupplyList property.
      *
-     * @return FBAInventoryServiceMWS_Model_InventorySupplyList InventorySupplyList.
+     * @return InventorySupplyList InventorySupplyList.
      */
     public function getInventorySupplyList()
     {
@@ -56,8 +60,8 @@ class FBAInventoryServiceMWS_Model_ListInventorySupplyResult extends FBAInventor
     /**
      * Set the value of the InventorySupplyList property.
      *
-     * @param FBAInventoryServiceMWS_Model_InventorySupplyList $value inventorySupplyList
-     * @return $this This instance
+     * @param FBAInventoryServiceMWS_Model_InventorySupplyList inventorySupplyList
+     * @return this instance
      */
     public function setInventorySupplyList($value)
     {
@@ -72,8 +76,8 @@ class FBAInventoryServiceMWS_Model_ListInventorySupplyResult extends FBAInventor
      */
     public function isSetInventorySupplyList()
     {
-        return !is_null($this->_fields['InventorySupplyList']['FieldValue']);
-    }
+                return !is_null($this->_fields['InventorySupplyList']['FieldValue']);
+            }
 
     /**
      * Set the value of InventorySupplyList, return this.
@@ -81,7 +85,7 @@ class FBAInventoryServiceMWS_Model_ListInventorySupplyResult extends FBAInventor
      * @param inventorySupplyList
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withInventorySupplyList($value)
     {
@@ -102,8 +106,8 @@ class FBAInventoryServiceMWS_Model_ListInventorySupplyResult extends FBAInventor
     /**
      * Set the value of the NextToken property.
      *
-     * @param string $value nextToken
-     * @return $this This instance
+     * @param string nextToken
+     * @return this instance
      */
     public function setNextToken($value)
     {
@@ -118,8 +122,8 @@ class FBAInventoryServiceMWS_Model_ListInventorySupplyResult extends FBAInventor
      */
     public function isSetNextToken()
     {
-        return !is_null($this->_fields['NextToken']['FieldValue']);
-    }
+                return !is_null($this->_fields['NextToken']['FieldValue']);
+            }
 
     /**
      * Set the value of NextToken, return this.
@@ -127,7 +131,7 @@ class FBAInventoryServiceMWS_Model_ListInventorySupplyResult extends FBAInventor
      * @param nextToken
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withNextToken($value)
     {
