@@ -28,6 +28,7 @@ class FBAInventoryServiceMWS_Model_ResponseHeaderMetadata {
 
   private $metadata = array();
 
+<<<<<<< HEAD
   public function __construct($requestId = null, $responseContext = null, $timestamp = null,
                               $quotaMax = null, $quotaMax = null, $quotaResetsAt = null) {
     $this->metadata[self::REQUEST_ID] = $requestId;
@@ -37,6 +38,23 @@ class FBAInventoryServiceMWS_Model_ResponseHeaderMetadata {
     $this->metadata[self::QUOTA_REMAINING] = $quotaMax;
     $this->metadata[self::QUOTA_RESETS_AT] = $quotaResetsAt;
   }
+=======
+    public function __construct(
+        $requestId = null,
+        $responseContext = null,
+        $timestamp = null,
+        $quotaMax = null,
+        $quotaRemaining = null,
+        $quotaResetsAt = null
+    ) {
+        $this->metadata[self::REQUEST_ID] = $requestId;
+        $this->metadata[self::RESPONSE_CONTEXT] = $responseContext;
+        $this->metadata[self::TIMESTAMP] = $timestamp;
+        $this->metadata[self::QUOTA_MAX] = $quotaMax;
+        $this->metadata[self::QUOTA_REMAINING] = $quotaRemaining;
+        $this->metadata[self::QUOTA_RESETS_AT] = $quotaResetsAt;
+    }
+>>>>>>> brickfox/master
 
   public function getRequestId() {
     return $this->metadata[self::REQUEST_ID];

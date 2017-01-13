@@ -24,7 +24,13 @@
       "MarketplaceWebServiceProducts": "src/",
       "MarketplaceWebServiceSellers": "src/",
       "MWSFinancesService": "src/",
+<<<<<<< HEAD
       "MWSRecommendationsSectionService": "src/"
+=======
+      "MWSMerchantFulfillmentService": "src/",
+      "MWSRecommendationsSectionService": "src/",
+      "MWSSubscriptionsService": "src/"
+>>>>>>> brickfox/master
     }
   }
 }

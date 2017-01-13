@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2015 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2016 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -11,26 +11,26 @@
  *******************************************************************************
  * PHP Version 5
  * @category Amazon
- * @package  FBA Inventory Service MWS
- * @version  2010-10-01
- * Library Version: 2015-09-29
- * Generated: Wed Sep 30 14:43:28 PDT 2015
+ * @package  MWS Merchant Fulfillment Service
+ * @version  2015-06-01
+ * Library Version: 2016-03-30
+ * Generated: Tue Mar 29 19:00:01 UTC 2016
  */
 
 /**
- *  @see FBAInventoryServiceMWS_Interface
+ *  @see MWSMerchantFulfillmentService_Interface
  */
 require_once (dirname(__FILE__) . '/Interface.php');
 
 /**
- * FBAInventoryServiceMWS_Client is an implementation of FBAInventoryServiceMWS
+ * MWSMerchantFulfillmentService_Client is an implementation of MWSMerchantFulfillmentService
  *
  */
-class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
+class MWSMerchantFulfillmentService_Client implements MWSMerchantFulfillmentService_Interface
 {
 
-    const SERVICE_VERSION = '2010-10-01';
-    const MWS_CLIENT_VERSION = '2015-09-29';
+    const SERVICE_VERSION = '2015-06-01';
+    const MWS_CLIENT_VERSION = '2016-03-30';
 
     /** @var string */
     private  $_awsAccessKeyId = null;
@@ -40,7 +40,7 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
 
     /** @var array */
     private  $_config = array ('ServiceURL' => null,
-                               'UserAgent' => 'FBAInventoryServiceMWS PHP5 Library',
+                               'UserAgent' => 'MWSMerchantFulfillmentService PHP5 Library',
                                'SignatureVersion' => 2,
                                'SignatureMethod' => 'HmacSHA256',
                                'ProxyHost' => null,
@@ -51,34 +51,237 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
                                'Headers' => array()
                                );
 
-    /** @var string */
-    private $_serviceVersion;
+
+    /**
+     * Cancel Shipment
+     * Cancels an existing shipment.  This will only succeed if the cancellation window has not passed and if the shipment
+     *     has not been cancelled already.
+     *
+     * @param mixed $request array of parameters for MWSMerchantFulfillmentService_Model_CancelShipment request or MWSMerchantFulfillmentService_Model_CancelShipment object itself
+     * @see MWSMerchantFulfillmentService_Model_CancelShipmentRequest
+     * @return MWSMerchantFulfillmentService_Model_CancelShipmentResponse
+     *
+     * @throws MWSMerchantFulfillmentService_Exception
+     */
+    public function cancelShipment($request)
+    {
+        if (!($request instanceof MWSMerchantFulfillmentService_Model_CancelShipmentRequest)) {
+            require_once (dirname(__FILE__) . '/Model/CancelShipmentRequest.php');
+            $request = new MWSMerchantFulfillmentService_Model_CancelShipmentRequest($request);
+        }
+        $parameters = $request->toQueryParameterArray();
+        $parameters['Action'] = 'CancelShipment';
+        $httpResponse = $this->_invoke($parameters);
+
+        require_once (dirname(__FILE__) . '/Model/CancelShipmentResponse.php');
+        $response = MWSMerchantFulfillmentService_Model_CancelShipmentResponse::fromXML($httpResponse['ResponseBody']);
+        $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
+        return $response;
+    }
+
+
+    /**
+     * Convert CancelShipmentRequest to name value pairs
+     */
+    private function _convertCancelShipment($request) {
+
+        $parameters = array();
+        $parameters['Action'] = 'CancelShipment';
+        if ($request->isSetSellerId()) {
+            $parameters['SellerId'] =  $request->getSellerId();
+        }
+        if ($request->isSetMWSAuthToken()) {
+            $parameters['MWSAuthToken'] =  $request->getMWSAuthToken();
+        }
+        if ($request->isSetShipmentId()) {
+            $parameters['ShipmentId'] =  $request->getShipmentId();
+        }
+
+        return $parameters;
+    }
+
+
+    /**
+     * Create Shipment
+     * Creates a shipment for the shipping information specified.  Purchases and returns a label for the specified
+     *     shipping service or shipping service offering.
+     *
+     * @param mixed $request array of parameters for MWSMerchantFulfillmentService_Model_CreateShipment request or MWSMerchantFulfillmentService_Model_CreateShipment object itself
+     * @see MWSMerchantFulfillmentService_Model_CreateShipmentRequest
+     * @return MWSMerchantFulfillmentService_Model_CreateShipmentResponse
+     *
+     * @throws MWSMerchantFulfillmentService_Exception
+     */
+    public function createShipment($request)
+    {
+        if (!($request instanceof MWSMerchantFulfillmentService_Model_CreateShipmentRequest)) {
+            require_once (dirname(__FILE__) . '/Model/CreateShipmentRequest.php');
+            $request = new MWSMerchantFulfillmentService_Model_CreateShipmentRequest($request);
+        }
+        $parameters = $request->toQueryParameterArray();
+        $parameters['Action'] = 'CreateShipment';
+        $httpResponse = $this->_invoke($parameters);
+
+        require_once (dirname(__FILE__) . '/Model/CreateShipmentResponse.php');
+        $response = MWSMerchantFulfillmentService_Model_CreateShipmentResponse::fromXML($httpResponse['ResponseBody']);
+        $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
+        return $response;
+    }
+
+
+    /**
+     * Convert CreateShipmentRequest to name value pairs
+     */
+    private function _convertCreateShipment($request) {
+
+        $parameters = array();
+        $parameters['Action'] = 'CreateShipment';
+        if ($request->isSetSellerId()) {
+            $parameters['SellerId'] =  $request->getSellerId();
+        }
+        if ($request->isSetMWSAuthToken()) {
+            $parameters['MWSAuthToken'] =  $request->getMWSAuthToken();
+        }
+        if ($request->isSetShipmentRequestDetails()) {
+            $ShipmentRequestDetailsCreateShipmentRequest = $request->getShipmentRequestDetails();
+            foreach  ($ShipmentRequestDetailsCreateShipmentRequest->getAmazonOrderId() as $AmazonOrderIdShipmentRequestDetailsIndex => $AmazonOrderIdShipmentRequestDetails) {
+                $parameters['ShipmentRequestDetails' . '.' . 'AmazonOrderId' . '.'  . ($AmazonOrderIdShipmentRequestDetailsIndex + 1)] =  $AmazonOrderIdShipmentRequestDetails;
+            }
+        }
+        if ($request->isSetShippingServiceId()) {
+            $parameters['ShippingServiceId'] =  $request->getShippingServiceId();
+        }
+        if ($request->isSetShippingServiceOfferId()) {
+            $parameters['ShippingServiceOfferId'] =  $request->getShippingServiceOfferId();
+        }
+
+        return $parameters;
+    }
+
+
+    /**
+     * Get Eligible Shipping Services
+     * Gets a list of eligible shipping services for the shipment information specified.  The ShippingServiceId or
+     *     ShippingServiceOfferingId can be used in CreateShipment to specify the shipping service or the specific offer
+     *     respectively.  A list of carriers that are temporarily unavailable is also returned.
+     *
+     * @param mixed $request array of parameters for MWSMerchantFulfillmentService_Model_GetEligibleShippingServices request or MWSMerchantFulfillmentService_Model_GetEligibleShippingServices object itself
+     * @see MWSMerchantFulfillmentService_Model_GetEligibleShippingServicesRequest
+     * @return MWSMerchantFulfillmentService_Model_GetEligibleShippingServicesResponse
+     *
+     * @throws MWSMerchantFulfillmentService_Exception
+     */
+    public function getEligibleShippingServices($request)
+    {
+        if (!($request instanceof MWSMerchantFulfillmentService_Model_GetEligibleShippingServicesRequest)) {
+            require_once (dirname(__FILE__) . '/Model/GetEligibleShippingServicesRequest.php');
+            $request = new MWSMerchantFulfillmentService_Model_GetEligibleShippingServicesRequest($request);
+        }
+        $parameters = $request->toQueryParameterArray();
+        $parameters['Action'] = 'GetEligibleShippingServices';
+        $httpResponse = $this->_invoke($parameters);
+
+        require_once (dirname(__FILE__) . '/Model/GetEligibleShippingServicesResponse.php');
+        $response = MWSMerchantFulfillmentService_Model_GetEligibleShippingServicesResponse::fromXML($httpResponse['ResponseBody']);
+        $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
+        return $response;
+    }
+
+
+    /**
+     * Convert GetEligibleShippingServicesRequest to name value pairs
+     */
+    private function _convertGetEligibleShippingServices($request) {
+
+        $parameters = array();
+        $parameters['Action'] = 'GetEligibleShippingServices';
+        if ($request->isSetSellerId()) {
+            $parameters['SellerId'] =  $request->getSellerId();
+        }
+        if ($request->isSetMWSAuthToken()) {
+            $parameters['MWSAuthToken'] =  $request->getMWSAuthToken();
+        }
+        if ($request->isSetShipmentRequestDetails()) {
+            $ShipmentRequestDetailsGetEligibleShippingServicesRequest = $request->getShipmentRequestDetails();
+            foreach  ($ShipmentRequestDetailsGetEligibleShippingServicesRequest->getAmazonOrderId() as $AmazonOrderIdShipmentRequestDetailsIndex => $AmazonOrderIdShipmentRequestDetails) {
+                $parameters['ShipmentRequestDetails' . '.' . 'AmazonOrderId' . '.'  . ($AmazonOrderIdShipmentRequestDetailsIndex + 1)] =  $AmazonOrderIdShipmentRequestDetails;
+            }
+        }
+
+        return $parameters;
+    }
+
+
+    /**
+     * Get Shipment
+     * Gets an existing shipment, including the label status, label content, shipping information.
+     *
+     * @param mixed $request array of parameters for MWSMerchantFulfillmentService_Model_GetShipment request or MWSMerchantFulfillmentService_Model_GetShipment object itself
+     * @see MWSMerchantFulfillmentService_Model_GetShipmentRequest
+     * @return MWSMerchantFulfillmentService_Model_GetShipmentResponse
+     *
+     * @throws MWSMerchantFulfillmentService_Exception
+     */
+    public function getShipment($request)
+    {
+        if (!($request instanceof MWSMerchantFulfillmentService_Model_GetShipmentRequest)) {
+            require_once (dirname(__FILE__) . '/Model/GetShipmentRequest.php');
+            $request = new MWSMerchantFulfillmentService_Model_GetShipmentRequest($request);
+        }
+        $parameters = $request->toQueryParameterArray();
+        $parameters['Action'] = 'GetShipment';
+        $httpResponse = $this->_invoke($parameters);
+
+        require_once (dirname(__FILE__) . '/Model/GetShipmentResponse.php');
+        $response = MWSMerchantFulfillmentService_Model_GetShipmentResponse::fromXML($httpResponse['ResponseBody']);
+        $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
+        return $response;
+    }
+
+
+    /**
+     * Convert GetShipmentRequest to name value pairs
+     */
+    private function _convertGetShipment($request) {
+
+        $parameters = array();
+        $parameters['Action'] = 'GetShipment';
+        if ($request->isSetSellerId()) {
+            $parameters['SellerId'] =  $request->getSellerId();
+        }
+        if ($request->isSetMWSAuthToken()) {
+            $parameters['MWSAuthToken'] =  $request->getMWSAuthToken();
+        }
+        if ($request->isSetShipmentId()) {
+            $parameters['ShipmentId'] =  $request->getShipmentId();
+        }
+
+        return $parameters;
+    }
+
 
     /**
      * Get Service Status
-     * Gets the status of the service.
-     *     Status is one of GREEN, RED representing:
-     *     GREEN: The service section is operating normally.
-     *     RED: The service section disruption.
+     * 
      *
-     * @param mixed $request array of parameters for FBAInventoryServiceMWS_Model_GetServiceStatus request or FBAInventoryServiceMWS_Model_GetServiceStatus object itself
-     * @see FBAInventoryServiceMWS_Model_GetServiceStatusRequest
-     * @return FBAInventoryServiceMWS_Model_GetServiceStatusResponse
+     * @param mixed $request array of parameters for MWSMerchantFulfillmentService_Model_GetServiceStatus request or MWSMerchantFulfillmentService_Model_GetServiceStatus object itself
+     * @see MWSMerchantFulfillmentService_Model_GetServiceStatusRequest
+     * @return MWSMerchantFulfillmentService_Model_GetServiceStatusResponse
      *
-     * @throws FBAInventoryServiceMWS_Exception
+     * @throws MWSMerchantFulfillmentService_Exception
      */
     public function getServiceStatus($request)
     {
-        if (!($request instanceof FBAInventoryServiceMWS_Model_GetServiceStatusRequest)) {
+        if (!($request instanceof MWSMerchantFulfillmentService_Model_GetServiceStatusRequest)) {
             require_once (dirname(__FILE__) . '/Model/GetServiceStatusRequest.php');
-            $request = new FBAInventoryServiceMWS_Model_GetServiceStatusRequest($request);
+            $request = new MWSMerchantFulfillmentService_Model_GetServiceStatusRequest($request);
         }
         $parameters = $request->toQueryParameterArray();
         $parameters['Action'] = 'GetServiceStatus';
         $httpResponse = $this->_invoke($parameters);
 
         require_once (dirname(__FILE__) . '/Model/GetServiceStatusResponse.php');
-        $response = FBAInventoryServiceMWS_Model_GetServiceStatusResponse::fromXML($httpResponse['ResponseBody']);
+        $response = MWSMerchantFulfillmentService_Model_GetServiceStatusResponse::fromXML($httpResponse['ResponseBody']);
         $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
         return $response;
     }
@@ -96,159 +299,6 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
         }
         if ($request->isSetMWSAuthToken()) {
             $parameters['MWSAuthToken'] =  $request->getMWSAuthToken();
-        }
-        if ($request->isSetMarketplace()) {
-            $parameters['Marketplace'] =  $request->getMarketplace();
-        }
-
-        return $parameters;
-    }
-
-
-    /**
-     * List Inventory Supply
-     * Get information about the supply of seller-owned inventory in
-     *     Amazon's fulfillment network. "Supply" is inventory that is available
-     *     for fulfilling (a.k.a. Multi-Channel Fulfillment) orders. In general
-     *     this includes all sellable inventory that has been received by Amazon,
-     *     that is not reserved for existing orders or for internal FC processes,
-     *     and also inventory expected to be received from inbound shipments.
-     * 
-     *     This operation provides 2 typical usages by setting different 
-     *     ListInventorySupplyRequest value:
-     *     
-     *     1. Set value to SellerSkus and not set value to QueryStartDateTime, 
-     *     this operation will return all sellable inventory that has been received 
-     *     by Amazon's fulfillment network for these SellerSkus.
-     * 
-     *     2. Not set value to SellerSkus and set value to QueryStartDateTime,
-     *     This operation will return information about the supply of all seller-owned
-     *     inventory in Amazon's fulfillment network, for inventory items that may have had
-     *     recent changes in inventory levels. It provides the most efficient mechanism 
-     *     for clients to maintain local copies of inventory supply data.
-     * 
-     *     Only 1 of these 2 parameters (SellerSkus and QueryStartDateTime) can be set value for 1 request.
-     *     If both with values or neither with values, an exception will be thrown.
-     * 
-     *     This operation is used with ListInventorySupplyByNextToken
-     *     to paginate over the resultset. Begin pagination by invoking the
-     *     ListInventorySupply operation, and retrieve the first set of
-     *     results. If more results are available,continuing iteratively requesting further 
-     *     pages results by invoking the ListInventorySupplyByNextToken operation (each time 
-     *     passing in the NextToken value from the previous result), until the returned NextToken
-     *     is null, indicating no further results are available.
-     *
-     * @param mixed $request array of parameters for FBAInventoryServiceMWS_Model_ListInventorySupply request or FBAInventoryServiceMWS_Model_ListInventorySupply object itself
-     * @see FBAInventoryServiceMWS_Model_ListInventorySupplyRequest
-     * @return FBAInventoryServiceMWS_Model_ListInventorySupplyResponse
-     *
-     * @throws FBAInventoryServiceMWS_Exception
-     */
-    public function listInventorySupply($request)
-    {
-        if (!($request instanceof FBAInventoryServiceMWS_Model_ListInventorySupplyRequest)) {
-            require_once (dirname(__FILE__) . '/Model/ListInventorySupplyRequest.php');
-            $request = new FBAInventoryServiceMWS_Model_ListInventorySupplyRequest($request);
-        }
-        $parameters = $request->toQueryParameterArray();
-        $parameters['Action'] = 'ListInventorySupply';
-        $httpResponse = $this->_invoke($parameters);
-
-        require_once (dirname(__FILE__) . '/Model/ListInventorySupplyResponse.php');
-        $response = FBAInventoryServiceMWS_Model_ListInventorySupplyResponse::fromXML($httpResponse['ResponseBody']);
-        $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
-        return $response;
-    }
-
-
-    /**
-     * Convert ListInventorySupplyRequest to name value pairs
-     */
-    private function _convertListInventorySupply($request) {
-
-        $parameters = array();
-        $parameters['Action'] = 'ListInventorySupply';
-        if ($request->isSetSellerId()) {
-            $parameters['SellerId'] =  $request->getSellerId();
-        }
-        if ($request->isSetMWSAuthToken()) {
-            $parameters['MWSAuthToken'] =  $request->getMWSAuthToken();
-        }
-        if ($request->isSetMarketplace()) {
-            $parameters['Marketplace'] =  $request->getMarketplace();
-        }
-        if ($request->isSetSupplyRegion()) {
-            $parameters['SupplyRegion'] =  $request->getSupplyRegion();
-        }
-        if ($request->isSetSellerSkus()) {
-            $SellerSkusListInventorySupplyRequest = $request->getSellerSkus();
-            foreach  ($SellerSkusListInventorySupplyRequest->getmember() as $memberSellerSkusIndex => $memberSellerSkus) {
-                $parameters['SellerSkus' . '.' . 'member' . '.'  . ($memberSellerSkusIndex + 1)] =  $memberSellerSkus;
-            }
-        }
-        if ($request->isSetQueryStartDateTime()) {
-            $parameters['QueryStartDateTime'] =  $request->getQueryStartDateTime();
-        }
-        if ($request->isSetResponseGroup()) {
-            $parameters['ResponseGroup'] =  $request->getResponseGroup();
-        }
-
-        return $parameters;
-    }
-
-
-    /**
-     * List Inventory Supply By Next Token
-     * Continues pagination over a resultset of inventory data for inventory
-     *     items.
-     *     
-     *     This operation is used in conjunction with ListUpdatedInventorySupply.
-     *     Please refer to documentation for that operation for further details.
-     *
-     * @param mixed $request array of parameters for FBAInventoryServiceMWS_Model_ListInventorySupplyByNextToken request or FBAInventoryServiceMWS_Model_ListInventorySupplyByNextToken object itself
-     * @see FBAInventoryServiceMWS_Model_ListInventorySupplyByNextTokenRequest
-     * @return FBAInventoryServiceMWS_Model_ListInventorySupplyByNextTokenResponse
-     *
-     * @throws FBAInventoryServiceMWS_Exception
-     */
-    public function listInventorySupplyByNextToken($request)
-    {
-        if (!($request instanceof FBAInventoryServiceMWS_Model_ListInventorySupplyByNextTokenRequest)) {
-            require_once (dirname(__FILE__) . '/Model/ListInventorySupplyByNextTokenRequest.php');
-            $request = new FBAInventoryServiceMWS_Model_ListInventorySupplyByNextTokenRequest($request);
-        }
-        $parameters = $request->toQueryParameterArray();
-        $parameters['Action'] = 'ListInventorySupplyByNextToken';
-        $httpResponse = $this->_invoke($parameters);
-
-        require_once (dirname(__FILE__) . '/Model/ListInventorySupplyByNextTokenResponse.php');
-        $response = FBAInventoryServiceMWS_Model_ListInventorySupplyByNextTokenResponse::fromXML($httpResponse['ResponseBody']);
-        $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
-        return $response;
-    }
-
-
-    /**
-     * Convert ListInventorySupplyByNextTokenRequest to name value pairs
-     */
-    private function _convertListInventorySupplyByNextToken($request) {
-
-        $parameters = array();
-        $parameters['Action'] = 'ListInventorySupplyByNextToken';
-        if ($request->isSetSellerId()) {
-            $parameters['SellerId'] =  $request->getSellerId();
-        }
-        if ($request->isSetMWSAuthToken()) {
-            $parameters['MWSAuthToken'] =  $request->getMWSAuthToken();
-        }
-        if ($request->isSetMarketplace()) {
-            $parameters['Marketplace'] =  $request->getMarketplace();
-        }
-        if ($request->isSetSupplyRegion()) {
-            $parameters['SupplyRegion'] =  $request->getSupplyRegion();
-        }
-        if ($request->isSetNextToken()) {
-            $parameters['NextToken'] =  $request->getNextToken();
         }
 
         return $parameters;
@@ -275,31 +325,19 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
      * <li>MaxErrorRetry</li>
      * </ul>
      */
-    public function __construct(
-    $awsAccessKeyId, $awsSecretAccessKey, $config, $applicationName, $applicationVersion = null, $attributes = null)
+    public function __construct($awsAccessKeyId, $awsSecretAccessKey, $applicationName, $applicationVersion, $config = null)
     {
-        // Swap parameters if it looks like we're using the newer argument order:
-        // ($awsAccessKeyId, $awsSecretAccessKey, $applicationName, $applicationVersion, $config = null)
-        if (!$this->_looksLikeArray($config) AND $this->_looksLikeArray($applicationVersion)) {
-            list($applicationName, $applicationVersion, $config) = array($config, $applicationName, $applicationVersion);
-        }
-
         iconv_set_encoding('output_encoding', 'UTF-8');
         iconv_set_encoding('input_encoding', 'UTF-8');
         iconv_set_encoding('internal_encoding', 'UTF-8');
 
         $this->_awsAccessKeyId = $awsAccessKeyId;
         $this->_awsSecretAccessKey = $awsSecretAccessKey;
-        $this->_serviceVersion = $applicationVersion;
         if (!is_null($config)) $this->_config = array_merge($this->_config, $config);
-        $this->setUserAgentHeader($applicationName, $applicationVersion, $attributes);
+        $this->setUserAgentHeader($applicationName, $applicationVersion);
     }
 
-    private function _looksLikeArray($x) {
-        return is_array($x) OR is_null($x);
-    }
-
-    public function setUserAgentHeader(
+    private function setUserAgentHeader(
         $applicationName,
         $applicationVersion,
         $attributes = null) {
@@ -429,7 +467,7 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
         try {
             if (empty($this->_config['ServiceURL'])) {
                 require_once (dirname(__FILE__) . '/Exception.php');
-                throw new FBAInventoryServiceMWS_Exception(
+                throw new MWSMerchantFulfillmentService_Exception(
                     array ('ErrorCode' => 'InvalidServiceURL',
                            'Message' => "Missing serviceUrl configuration value. You may obtain a list of valid MWS URLs by consulting the MWS Developer's Guide, or reviewing the sample code published along side this library."));
             }
@@ -448,11 +486,11 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
                 throw $this->_reportAnyErrors($response['ResponseBody'],
                     $status, $response['ResponseHeaderMetadata']);
             }
-        } catch (FBAInventoryServiceMWS_Exception $se) {
+        } catch (MWSMerchantFulfillmentService_Exception $se) {
             throw $se;
         } catch (Exception $t) {
             require_once (dirname(__FILE__) . '/Exception.php');
-            throw new FBAInventoryServiceMWS_Exception(array('Exception' => $t, 'Message' => $t->getMessage()));
+            throw new MWSMerchantFulfillmentService_Exception(array('Exception' => $t, 'Message' => $t->getMessage()));
         }
     }
 
@@ -479,7 +517,7 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
         }
 
         require_once (dirname(__FILE__) . '/Exception.php');
-        return new FBAInventoryServiceMWS_Exception($exProps);
+        return new MWSMerchantFulfillmentService_Exception($exProps);
     }
 
 
@@ -547,7 +585,7 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
             $exProps["Message"] = curl_error($ch);
             $exProps["ErrorType"] = "HTTP";
             curl_close($ch);
-            throw new FBAInventoryServiceMWS_Exception($exProps);
+            throw new MWSMerchantFulfillmentService_Exception($exProps);
         }
 
         curl_close($ch);
@@ -598,7 +636,7 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
             require_once (dirname(__FILE__) . '/Exception.php');
             $exProps["Message"] = "Failed to parse valid HTTP response (" . $response . ")";
             $exProps["ErrorType"] = "HTTP";
-            throw new FBAInventoryServiceMWS_Exception($exProps);
+            throw new MWSMerchantFulfillmentService_Exception($exProps);
         }
 
         return array(
@@ -660,7 +698,7 @@ class FBAInventoryServiceMWS_Client implements FBAInventoryServiceMWS_Interface
         }
  
         require_once(dirname(__FILE__) . '/Model/ResponseHeaderMetadata.php');
-        return new FBAInventoryServiceMWS_Model_ResponseHeaderMetadata(
+        return new MWSMerchantFulfillmentService_Model_ResponseHeaderMetadata(
           $headers['x-mws-request-id'],
           $headers['x-mws-response-context'],
           $headers['x-mws-timestamp'],

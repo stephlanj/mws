@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2016 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2015 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -11,13 +11,13 @@
  *******************************************************************************
  * PHP Version 5
  * @category Amazon
- * @package  Marketplace Web Service Products
- * @version  2011-10-01
- * Library Version: 2016-06-01
- * Generated: Fri Sep 16 11:49:32 PDT 2016
+ * @package  MWS Subscriptions Service
+ * @version  2013-07-01
+ * Library Version: 2015-06-18
+ * Generated: Thu Jun 18 19:27:20 GMT 2015
  */
 
-class MarketplaceWebServiceProducts_Model_ResponseHeaderMetadata {
+class MWSSubscriptionsService_Model_ResponseHeaderMetadata {
 
   const REQUEST_ID = 'x-mws-request-id';
   const RESPONSE_CONTEXT = 'x-mws-response-context';
@@ -28,7 +28,6 @@ class MarketplaceWebServiceProducts_Model_ResponseHeaderMetadata {
 
   private $metadata = array();
 
-<<<<<<< HEAD
   public function __construct($requestId = null, $responseContext = null, $timestamp = null,
                               $quotaMax = null, $quotaMax = null, $quotaResetsAt = null) {
     $this->metadata[self::REQUEST_ID] = $requestId;
@@ -38,23 +37,6 @@ class MarketplaceWebServiceProducts_Model_ResponseHeaderMetadata {
     $this->metadata[self::QUOTA_REMAINING] = $quotaMax;
     $this->metadata[self::QUOTA_RESETS_AT] = $quotaResetsAt;
   }
-=======
-    public function __construct(
-        $requestId = null,
-        $responseContext = null,
-        $timestamp = null,
-        $quotaMax = null,
-        $quotaRemaining = null,
-        $quotaResetsAt = null
-    ) {
-        $this->metadata[self::REQUEST_ID] = $requestId;
-        $this->metadata[self::RESPONSE_CONTEXT] = $responseContext;
-        $this->metadata[self::TIMESTAMP] = $timestamp;
-        $this->metadata[self::QUOTA_MAX] = $quotaMax;
-        $this->metadata[self::QUOTA_REMAINING] = $quotaRemaining;
-        $this->metadata[self::QUOTA_RESETS_AT] = $quotaResetsAt;
-    }
->>>>>>> brickfox/master
 
   public function getRequestId() {
     return $this->metadata[self::REQUEST_ID];
